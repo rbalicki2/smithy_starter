@@ -1,0 +1,23 @@
+[package]
+name = "smithy_starter"
+version = "0.1.0"
+authors = ["Robert Balicki <robert.balicki@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = { version = "< 0.2.39", features = ["nightly", "serde-serialize"] }
+smithy = { path = "../smithy/crates/smithy", features = [
+  # "mouse-events",
+  # "input-events",
+  # "debug-logs",
+] }
+web-sys = { version = "0.3.5", features = [
+  "Element",
+] }
+js-sys = "0.3.5"
+
+[replace]
+"proc-macro2:0.4.27" = { git = "https://github.com/rbalicki2/smithy" }
